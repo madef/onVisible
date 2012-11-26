@@ -1,4 +1,4 @@
-ZoomGallery Documentation
+onVisible Documentation
 =========
 onVisible is a small and easy to use JS library to add events listeners when dom elements become hidden or visible.
 
