@@ -10,6 +10,9 @@ p {
 	width: 100%;
 	text-align: center;
 }
+a {
+	color: black;
+}
 #log {
 	border: 1px solid black;
 	margin: 20px 0px 100px;
