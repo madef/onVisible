@@ -126,8 +126,18 @@ jQuery.fn.visibilityListener = function(options) {
 			}
 		});
 	}
-	
-	window.setInterval(function() {
-		fireEvents();
-	}, opts.frequency);
+
+	if(opts.frequency!==0) {
+		var runFireEvents=function() { fireEvents(); };
+		var timerId=null;
+		this.bind('disableVisibilityListener',function() {
+			if(opts.frequency=='window') jQuery(window).unbind('scroll resize',runFireEvents);
+			else window.clearTimeout(timerId);
+		});
+		if(opts.frequency=='window') {
+			jQuery(window).bind('scroll resize',runFireEvents);
+		} else {
+			timerId=window.setInterval(runFireEvents,opts.frequency);
+		}
+	}
 }
